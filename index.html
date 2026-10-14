@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f8f6f2">
+<title>MALI NAILS — Nail booking</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+ <a class="logo" href="#"><span class="logo-mark">m.</span><span><strong>MALI NAILS</strong><small>NAIL STUDIO</small></span></a>
+ <nav><a href="#booking">จองคิว</a><a href="#gallery">ผลงาน</a><a href="#details">ข้อมูลร้าน</a></nav>
+ <button class="admin-trigger" id="adminOpen">สำหรับเจ้าของร้าน ↗</button>
+</header>
+<main>
+<section class="hero">
+ <div class="hero-text"><p class="overline">NAIL STUDIO · KORAT</p><h1>Little details.<br><em>Beautiful you.</em></h1><p class="lead">พื้นที่เล็ก ๆ สำหรับความสวยในแบบของคุณ<br>เลือกวันและเวลาที่สะดวก แล้วจองคิวได้เลย</p><a class="button dark" href="#booking">จองคิวทำเล็บ <span>↗</span></a><div class="hero-note"><span class="tiny-dot"></span> เปิดรับจองตามวันที่ร้านกำหนด</div></div>
+ <div class="hero-visual"><div class="visual-card"><div class="nail-art">✳</div><div class="visual-caption"><span>01 / SIGNATURE</span><b>Soft, simple, lovely.</b></div></div><div class="circle-note">MALI<br>NAILS<br>♡</div><div class="vertical-note">NAIL ART · BEAUTY · YOU</div></div>
+</section>
+<section class="booking section" id="booking">
+ <div class="section-intro"><p class="overline">BOOK YOUR VISIT</p><h2>จองคิวของคุณ</h2><p>เลือกวันที่เปิดร้านและช่วงเวลาว่าง ก่อนกรอกข้อมูลให้ครบถ้วน</p></div>
+ <div class="booking-layout">
+  <div class="panel calendar-panel">
+   <div class="panel-heading"><span class="step">01</span><div><h3>เลือกวันที่</h3><p>วันที่สีเข้มคือวันที่เลือกอยู่</p></div></div>
+   <div class="monthbar"><button id="prevMonth" aria-label="เดือนก่อน">←</button><h4 id="monthLabel"></h4><button id="nextMonth" aria-label="เดือนถัดไป">→</button></div>
+   <div class="weekdays"><span>อา</span><span>จ</span><span>อ</span><span>พ</span><span>พฤ</span><span>ศ</span><span>ส</span></div><div class="days" id="calendarDays"></div>
+   <div class="legend"><span><i class="open-dot"></i> มีคิวว่าง</span><span><i class="closed-dot"></i> ปิด / คิวเต็ม</span></div>
+  </div>
+  <div class="panel times-panel">
+   <div class="panel-heading"><span class="step">02</span><div><h3>เลือกช่วงเวลา</h3><p id="selectedDateLabel">กรุณาเลือกวันที่</p></div></div>
+   <div class="time-grid" id="slotGrid"><p class="empty">เลือกวันที่เพื่อดูเวลาว่าง</p></div>
+   <div class="time-foot">คิวละ 2 ชั่วโมง · พักเที่ยง 12:00–13:00 น.<br>เวลาทำการ 08:00–20:30 น. · เวลาที่แสดงขึ้นอยู่กับการตั้งค่าของร้าน</div>
+  </div>
+  <div class="panel form-panel">
+   <div class="panel-heading"><span class="step">03</span><div><h3>ข้อมูลสำหรับจอง</h3><p>กรุณากรอกข้อมูลให้ครบทุกช่อง</p></div></div>
+   <form id="bookingForm">
+    <div class="selection" id="chosenSummary">ยังไม่ได้เลือกวันและเวลา</div>
+    <label>ชื่อเล่น <b>*</b><input id="nickname" required maxlength="40" placeholder="ชื่อเล่นของคุณ"></label>
+    <label>Instagram <b>*</b><input id="instagram" required maxlength="60" placeholder="@yourinstagram"></label>
+    <label>เบอร์โทรศัพท์ <b>*</b><input id="phone" required type="tel" maxlength="20" pattern="[0-9+() .-]{8,20}" placeholder="08X-XXX-XXXX"></label>
+    <label>รูปตัวอย่างเล็บ <b>*</b><span class="upload"><input id="referenceImage" type="file" accept="image/*" required><span class="upload-plus">＋</span><strong>เลือกภาพอ้างอิง</strong><small>JPG, PNG หรือ WEBP · ไม่เกิน 8 MB</small><span id="fileName"></span></span></label>
+    <label class="check"><input id="consent" type="checkbox" required> ยินยอมให้ร้านใช้ข้อมูลเพื่อติดต่อและจัดการคิว</label>
+    <button class="button dark submit" type="submit">ส่งคำขอจองคิว <span>↗</span></button>
+    <p class="fineprint">การจองจะมีสถานะ “รอยืนยัน” จนกว่าร้านจะตรวจสอบและยืนยัน</p>
+   </form>
+  </div>
+ </div>
+ <div class="booking-status"><span class="status-mark">i</span><p><strong>ขั้นตอนการจอง</strong><br>ส่งคำขอได้ทันที · เวลาที่มีคำขอจองแล้วจะถูกกันไว้ชั่วคราวเพื่อป้องกันการจองซ้ำ · ร้านจะตรวจสอบรูปและยืนยันคิว</p></div>
+</section>
+<section class="gallery section" id="gallery"><div class="section-intro"><p class="overline">THE NAIL EDIT</p><h2>Simple, but special.</h2><p>ไอเดียเล็บในโทนละมุน — เปลี่ยนเป็นรูปผลงานจริงของร้านได้</p></div><div class="gallery-grid"><article class="look look-one"><span>01</span><div class="look-symbol">◌</div><b>Milky nude</b><small>นู้ดสะอาดตา</small></article><article class="look look-two"><span>02</span><div class="look-symbol">✳</div><b>Petal pink</b><small>ชมพูระเรื่อ</small></article><article class="look look-three"><span>03</span><div class="look-symbol">◇</div><b>Quiet sparkle</b><small>ประกายบางเบา</small></article><article class="look look-four"><span>04</span><div class="look-symbol">〰</div><b>Modern french</b><small>เรียบหรูร่วมสมัย</small></article></div></section>
+<section class="details section" id="details"><div><p class="overline">A LITTLE NOTE</p><h2>See you soon.</h2><p>กรุณาเลือกเวลาที่สะดวกและแนบรูปตัวอย่างทุกครั้ง<br>หากต้องการเปลี่ยนคิว ติดต่อร้านผ่าน Instagram ได้เลย</p></div><div class="detail-side"><span>BUSINESS HOURS</span><strong>08:00 — 20:30</strong><small>เปิดตามวันที่กำหนดในปฏิทิน</small><hr><span>INSTAGRAM</span><strong>@malinails</strong><small>แก้ไขข้อมูลติดต่อใน index.html ได้</small></div></section>
+</main>
+<footer><a class="logo" href="#"><span class="logo-mark">m.</span><span><strong>MALI NAILS</strong><small>NAIL STUDIO</small></span></a><span>Thoughtfully done, just for you.</span><span>© MALI NAILS</span></footer>
+<div class="modal-bg" id="adminModal" hidden><section class="modal"><button class="close" id="adminClose">×</button><p class="overline">STUDIO CONTROL</p><h2>จัดการร้าน</h2><p class="modal-sub">ตั้งค่าวันเปิดร้านและเวลาเริ่มคิว (คิวละ 2 ชั่วโมง)</p><div class="warning">โหมดตัวอย่าง: ข้อมูลเก็บในเบราว์เซอร์นี้เท่านั้น ยังไม่ซิงก์ข้ามอุปกรณ์ และยังไม่มีระบบล็อกอินที่ปลอดภัย</div>
+<label>วันที่ <input type="date" id="adminDate"></label><label class="inline"><input type="checkbox" id="adminOpenDay"> เปิดรับจองในวันนี้</label><label>เวลาเริ่มคิว (คั่นด้วยจุลภาค)<textarea id="adminTimes" rows="3" placeholder="08:00, 10:00, 13:00, 15:00, 17:00"></textarea><small class="fineprint">คิวละ 2 ชั่วโมง · พัก 12:00–13:00 · ตัวอย่าง 08:00 หมายถึง 08:00–10:00 · ห้ามตั้งคิวทับซ้อนกัน</small></label><button class="button dark full" id="saveDay">บันทึกการตั้งค่า</button><div class="admin-actions"><button class="button light" id="exportBookings">ดาวน์โหลด CSV</button><button class="button light" id="clearBookings">ล้างข้อมูลทดลอง</button></div><h3>คำขอจองในอุปกรณ์นี้</h3><div id="adminBookings" class="admin-bookings"></div></section></div>
+<div class="toast" id="toast"></div><script src="app.js"></script>
+</body></html>
